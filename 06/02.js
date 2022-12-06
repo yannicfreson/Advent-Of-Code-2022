@@ -1,16 +1,1 @@
-const input = require("fs").readFileSync("./input.txt", "utf8").trim();
-
-let start = 0;
-let end = 14;
-let rollingWindow = input.slice(start, end).split("");
-
-while (true) {
-  if (new Set(rollingWindow).size === rollingWindow.length) {
-    console.log(end);
-    break;
-  } else {
-    start++;
-    end++;
-    rollingWindow = input.slice(start, end).split("");
-  }
-}
+console.log(require("fs").readFileSync("./input.txt", "utf8").trim().split("").map((char, i, arr) => new Set(arr.slice(i, i + 14)).size === arr.slice(i, i + 14).length ? i + 14 : null).filter((item) => item !== null)[0]);
