@@ -1,6 +1,3 @@
-const fs = require("fs");
-const inputLines = fs.readFileSync("./input.txt", "utf8").split("\n");
-
 const ELF_ROCK_PLAY = "A";
 const MY_ROCK_PLAY = "X";
 const ROCK_VALUE = 1;
@@ -19,7 +16,7 @@ const WIN_POINTS = 6;
 
 let score = 0;
 
-inputLines.forEach((line) => {
+require("fs").readFileSync("./input.txt", "utf8").split("\n").forEach((line) => {
   let elfPlay = line.split(" ")[0];
   let myPlay = line.split(" ")[1];
 
